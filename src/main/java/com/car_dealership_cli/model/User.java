@@ -8,12 +8,17 @@ public class User {
 	private String email;
 	private String userName;
 	private String password;
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.userName+": UserLevel "+userLevel+", Email "+email;
+	}
 	public User() {
 		
 	}
 	
-	public User (String email, String userName, String password) {
+	public User (int userLevel, String email, String userName, String password) {
+		this.userLevel = userLevel;
 		this.email = email;
 		this.userName = userName;
 		this.password = password;
