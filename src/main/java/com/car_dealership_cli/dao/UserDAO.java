@@ -38,6 +38,27 @@ public class UserDAO implements DAOContract<User, Integer> {
 		
 		return null;
 	}
+	public User findByUsername(String n) {
+		Connection con = DAOUtilities.getConnection();
+		User rU = new User();
+		String sql = "select * from cduser where username=?";
+		try {
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, n);
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+				rU.setEmail(rs.getString("email"));
+				rU.setUserName(rs.getString("username"));
+				rU.setPassword(rs.getString("cd_password"));
+				rU.setUserLevel(rs.getInt("user_level"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rU;
+		
+	}
 
 	@Override
 	public User update(User t) {

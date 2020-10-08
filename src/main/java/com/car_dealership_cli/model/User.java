@@ -11,7 +11,7 @@ public class User {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return this.userName+": UserLevel "+userLevel+", Email "+email;
+		return this.userName+": UserLevel "+userLevel+", Email "+email + "\n";
 	}
 	public User() {
 		
