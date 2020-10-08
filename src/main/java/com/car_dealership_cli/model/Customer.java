@@ -7,22 +7,29 @@ public class Customer {
 	
 	private int customerId;
 	private int userId;
-	private String Name;
+	private String firstName;
+	private	String lastName;
 	private String Email;
 	private List<String> orderIds = new ArrayList<String>();
 	
 	
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 	public int getCustomerId() {
 		return customerId;
 	}
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
-	public String getName() {
-		return Name;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		Name = name;
+	public void setFirstName(String name) {
+		firstName = name;
 	}
 	public String getEmail() {
 		return Email;

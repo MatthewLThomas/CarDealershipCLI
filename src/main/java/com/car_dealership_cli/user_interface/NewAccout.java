@@ -14,6 +14,7 @@ public class NewAccout implements Menu {
 	public void open(Scanner a) {
 		input = a;
 		display(0);
+		display(4);
 		
 
 	}
@@ -35,8 +36,10 @@ public class NewAccout implements Menu {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			System.out.print("Please enter your full name: ");
-			newCust.setName(input.next());
+			System.out.print("Please enter your first name: ");
+			newCust.setFirstName(input.next());
+			System.out.print("\nPlease enter your last name: ");
+			newCust.setLastName(input.next());
 			break;
 		case 2:
 			System.out.print("Please enter your username: ");
@@ -60,6 +63,27 @@ public class NewAccout implements Menu {
 			}while(!inOne.equals(inTwo));
 			newUser.setPassword(inOne);
 		case 4:
+			System.out.print("You're all done! Redirecting you to the main menu.");
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				
+				e.printStackTrace();
+			}
+			System.out.print(".");
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+
+				e.printStackTrace();
+			}
+			System.out.print(".");
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+
+				e.printStackTrace();
+			}
 		case 5:
 		}
 	}

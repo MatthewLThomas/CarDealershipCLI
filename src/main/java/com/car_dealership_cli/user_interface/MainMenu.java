@@ -14,8 +14,9 @@ public class MainMenu implements Menu {
 	public void open(Scanner a) {
 		// TODO Auto-generated method stub]
 		this.input = a;
-		display();
 		do {
+			
+			display();
 			select(input.next());
 		}while (!cont);
 		
@@ -24,7 +25,7 @@ public class MainMenu implements Menu {
 	@Override
 	public void display() {
 		// TODO Auto-generated method stub
-		System.out.println("Please Select a Number");
+		System.out.println("\nPlease Select a Number");
 		System.out.println("\n1: User Login");
 		System.out.println("2: Register for a New Account");
 		System.out.println("3: View Current Inventory");
