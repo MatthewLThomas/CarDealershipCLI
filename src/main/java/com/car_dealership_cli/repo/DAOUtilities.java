@@ -1,17 +1,16 @@
 package com.car_dealership_cli.repo;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.SQLException;
 
 import com.car_dealership_cli.config.FileConnectionsUtil;
 
 public class DAOUtilities {
 
-	private static final String CONNECTION_USERNAME = "";
-	private static final String CONNECTION_PASSOWRD = "";
+
 	//jdbc:postgresql://endpoint:port/dbName?currentSchema=schema
-	private static final String URL = "";
+
 	static FileConnectionsUtil fc = FileConnectionsUtil.getInstance();
 	private static Connection connection;
 	

@@ -2,7 +2,8 @@ package com.car_dealership_cli.user_interface;
 
 import java.util.Scanner;
 
-import com.car_dealership_cli.dao.UserDAO;
+import com.car_dealership_cli.controller.UserLoginService;
+
 import com.car_dealership_cli.model.User;
 import com.car_dealership_cli.user_interface.interfaces.Menu;
 
@@ -10,12 +11,13 @@ public class UserLogin implements Menu {
 	private Scanner input; 
 	private boolean cont = false;
 	private User tempU = new User();
+	public static User checkU;
 	@Override
 	public void open(Scanner a) {
 		this.input = a;
 		do {
 			display();
-			select("hello");
+			cont = UserLoginService.login(tempU, checkU);
 		}while(!cont);
 		exit();
 	}
@@ -34,6 +36,7 @@ public class UserLogin implements Menu {
 
 	@Override
 	public boolean select(String in) {
+		/*
 		UserDAO ud = new UserDAO();
 		User checkU = ud.findByUsername(tempU.getUserName());
 		if(checkU.getUserName() == null) {
@@ -45,13 +48,21 @@ public class UserLogin implements Menu {
 		if(checkU.getUserName().equals(tempU.getUserName()) && checkU.getPassword().equals(tempU.getPassword())) {
 			System.out.println("Mainframe Hacked, You're in.");
 			cont = true;
-		}}
+		}}*/
 		return false;
+		
 	}
 
 	@Override
 	public void exit() {
-		// TODO Auto-generated method stub
+		switch(checkU.getUserLevel()) {
+		case 0:
+		case 1:
+			Menu newA = new NewAccout();
+			newA.open(input);
+		case 2:
+		case 3:
+		}
 
 	}
 
