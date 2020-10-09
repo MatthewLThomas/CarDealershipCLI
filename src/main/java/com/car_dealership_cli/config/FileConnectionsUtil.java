@@ -29,7 +29,7 @@ public class FileConnectionsUtil {
 	{
 		FileInputStream f;
 		try {
-			f = new FileInputStream("/CarDealershipCLI/src/main/java/com/car_dealership_cli/config/connection.properties");
+			f = new FileInputStream("src/main/java/com/car_dealership_cli/config/connection.properties");
 		
 		Properties p = new Properties();
 		p.load(f);

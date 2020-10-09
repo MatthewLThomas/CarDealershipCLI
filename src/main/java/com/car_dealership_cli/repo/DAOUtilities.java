@@ -4,12 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import com.car_dealership_cli.config.FileConnectionsUtil;
+
 public class DAOUtilities {
 
-	private static final String CONNECTION_USERNAME = "Hadion";
-	private static final String CONNECTION_PASSOWRD = "Hal9000!";
+	private static final String CONNECTION_USERNAME = "";
+	private static final String CONNECTION_PASSOWRD = "";
 	//jdbc:postgresql://endpoint:port/dbName?currentSchema=schema
-	private static final String URL = "jdbc:postgresql://imperial-archives.cs1cruzjtwei.us-east-2.rds.amazonaws.com:5432/postgres?currentSchema=cd";
+	private static final String URL = "";
+	static FileConnectionsUtil fc = FileConnectionsUtil.getInstance();
 	private static Connection connection;
 	
 	public static synchronized Connection getConnection(){
@@ -21,7 +24,7 @@ public class DAOUtilities {
 				e.printStackTrace();
 			}
 			try {
-				connection = DriverManager.getConnection(URL, CONNECTION_USERNAME, CONNECTION_PASSOWRD);
+				connection = fc.getConnection();
 			} catch (SQLException e) {
 				
 				e.printStackTrace();
@@ -31,7 +34,7 @@ public class DAOUtilities {
 			if (connection.isClosed()) {
 				System.out.println("Opening new connection...");
 				try {
-					connection = DriverManager.getConnection(URL, CONNECTION_USERNAME, CONNECTION_PASSOWRD);
+					connection = fc.getConnection();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
