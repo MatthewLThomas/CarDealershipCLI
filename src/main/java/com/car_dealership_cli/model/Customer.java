@@ -9,7 +9,8 @@ public class Customer {
 	private int userId;
 	private String firstName;
 	private	String lastName;
-	private List<String> orderIds = new ArrayList<String>();
+	private List<Offer> offers = new ArrayList<Offer>();
+	private List<Car> ownedCars = new ArrayList<Car>();
 	
 	
 	public String getLastName() {
@@ -30,17 +31,23 @@ public class Customer {
 	public void setFirstName(String name) {
 		firstName = name;
 	}
-	public List<String> getOrderIds() {
-		return orderIds;
+	public List<Offer> getOrderIds() {
+		return offers;
 	}
-	public void setOrderIds(List<String> orderIds) {
-		this.orderIds = orderIds;
+	public void setOrderIds(List<Offer> orderIds) {
+		this.offers = orderIds;
 	}
 	public int getUserId() {
 		return userId;
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+	public List<Car> getOwnedCars() {
+		return ownedCars;
+	}
+	public void setOwnedCars(List<Car> ownedCars) {
+		this.ownedCars = ownedCars;
 	}
 	
 }

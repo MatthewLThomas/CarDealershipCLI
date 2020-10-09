@@ -2,6 +2,7 @@ package com.car_dealership_cli.user_interface;
 
 import java.util.Scanner;
 
+import com.car_dealership_cli.controller.UserController;
 import com.car_dealership_cli.controller.UserLoginService;
 
 import com.car_dealership_cli.model.User;
@@ -20,6 +21,8 @@ public class UserLogin implements Menu {
 			cont = UserLoginService.login(tempU, checkU);
 		}while(!cont);
 		exit();
+		UserController.setUser(null);
+		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\nLogged Out");
 	}
 
 	@Override
@@ -55,13 +58,14 @@ public class UserLogin implements Menu {
 
 	@Override
 	public void exit() {
-		switch(checkU.getUserLevel()) {
+		switch(UserController.getUser().getUserId()) {
 		case 0:
 		case 1:
-			Menu newA = new NewAccout();
+			CustomerMenu newA = new CustomerMenu();
 			newA.open(input);
 		case 2:
 		case 3:
+			
 		}
 
 	}

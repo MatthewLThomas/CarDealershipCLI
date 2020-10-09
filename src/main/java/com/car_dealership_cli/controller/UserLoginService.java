@@ -2,7 +2,7 @@ package com.car_dealership_cli.controller;
 
 import com.car_dealership_cli.dao.UserDAO;
 import com.car_dealership_cli.model.User;
-import com.car_dealership_cli.user_interface.UserLogin;
+
 
 public class UserLoginService {
 	
@@ -17,7 +17,7 @@ public class UserLoginService {
 	}
 	if(checkU.getUserName().equals(tempU.getUserName()) && checkU.getPassword().equals(tempU.getPassword())) {
 		System.out.println("Mainframe Hacked, You're in.");
-		UserLogin.checkU = checkU;
+		UserController.setUser(checkU);
 		return true;
 	}}
 	return false;
