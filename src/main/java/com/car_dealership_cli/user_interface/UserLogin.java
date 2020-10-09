@@ -38,14 +38,14 @@ public class UserLogin implements Menu {
 		User checkU = ud.findByUsername(tempU.getUserName());
 		if(checkU.getUserName() == null) {
 			System.out.println("Error: User: "+tempU.getUserName()+" does not exist.");
-		}
+		}else {
 		if(checkU.getUserName().equals(tempU.getUserName()) && !checkU.getPassword().equals(tempU.getPassword())) {
 			System.out.println("Error: Incorrect Password");
 		}
 		if(checkU.getUserName().equals(tempU.getUserName()) && checkU.getPassword().equals(tempU.getPassword())) {
 			System.out.println("Mainframe Hacked, You're in.");
 			cont = true;
-		}
+		}}
 		return false;
 	}
 

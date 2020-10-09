@@ -2,19 +2,25 @@ package com.car_dealership_cli.user_interface;
 
 import java.util.Scanner;
 
+import com.car_dealership_cli.dao.UserDAO;
 import com.car_dealership_cli.model.Customer;
 import com.car_dealership_cli.model.User;
 import com.car_dealership_cli.user_interface.interfaces.Menu;
 
 public class NewAccout implements Menu {
 	Scanner input;
+	boolean cont = false;
 	Customer newCust = new Customer();
 	User newUser = new User();
+	UserDAO uD = new UserDAO();
 	@Override
 	public void open(Scanner a) {
 		input = a;
-		display(0);
-		display(4);
+		int i = 0;
+		do{
+			display(i);
+			i++;
+		}while(!cont);
 		
 
 	}
@@ -28,7 +34,7 @@ public class NewAccout implements Menu {
 		switch(a) {
 		case 0:
 			System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-		
+			break;
 		case 1:
 			System.out.println("Welcome to the user creation experience.");
 			try {
@@ -42,10 +48,23 @@ public class NewAccout implements Menu {
 			newCust.setLastName(input.next());
 			break;
 		case 2:
-			System.out.print("Please enter your username: ");
-			newUser.setUserName(input.next());
+			System.out.print("\nPlease enter your email: ");
+			newUser.setEmail(input.next());
+			if (uD.findByEmail(newUser.getEmail()).getEmail() !=  null) {
+				System.out.println("Email already in use. Please enter a different email or ask a SysAdmin for help.");
+				display(2);
+			}
 			break;
 		case 3:
+			System.out.print("\nPlease enter your username: ");
+			newUser.setUserName(input.next());
+			if (uD.findByUsername(newUser.getUserName()).getUserName() != null){
+				System.out.println(uD.findByUsername(newUser.getUserName()).getUserName());
+				System.out.println("Username already in use. Please enter a different email or ask a SysAdmin for help.");
+				display(3);
+			}
+			break;
+		case 4:
 			String inOne = "Password";
 			String inTwo = "password";
 			boolean error = false;
@@ -62,7 +81,8 @@ public class NewAccout implements Menu {
 				}
 			}while(!inOne.equals(inTwo));
 			newUser.setPassword(inOne);
-		case 4:
+			break;
+		case 5:
 			System.out.print("You're all done! Redirecting you to the main menu.");
 			try {
 				Thread.sleep(500);
@@ -84,7 +104,10 @@ public class NewAccout implements Menu {
 
 				e.printStackTrace();
 			}
-		case 5:
+			break;	
+		default:
+			System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+			cont = true;
 		}
 	}
 

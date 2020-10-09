@@ -9,7 +9,6 @@ public class Customer {
 	private int userId;
 	private String firstName;
 	private	String lastName;
-	private String Email;
 	private List<String> orderIds = new ArrayList<String>();
 	
 	
@@ -30,12 +29,6 @@ public class Customer {
 	}
 	public void setFirstName(String name) {
 		firstName = name;
-	}
-	public String getEmail() {
-		return Email;
-	}
-	public void setEmail(String email) {
-		Email = email;
 	}
 	public List<String> getOrderIds() {
 		return orderIds;
