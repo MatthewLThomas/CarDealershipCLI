@@ -58,12 +58,19 @@ public class UserLogin implements Menu {
 
 	@Override
 	public void exit() {
-		switch(UserController.getUser().getUserId()) {
+		switch(UserController.getUser().getUserLevel()) {
 		case 0:
+			Menu sm = new SystemMenu();
+			sm.open(input);
+			break;
 		case 1:
 			CustomerMenu newA = new CustomerMenu();
 			newA.open(input);
+			break;
 		case 2:
+			Menu em = new EmployeeMenu();
+			em.open(input);
+			break;
 		case 3:
 			
 		}

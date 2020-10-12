@@ -35,8 +35,25 @@ public class UserDAO implements DAOContract<User, Integer> {
 
 	@Override
 	public User findById(Integer i) {
-		
-		return null;
+		Connection con = DAOUtilities.getConnection();
+		User rU = new User();
+		String sql = "select * from cduser where user_id=?";
+		try {
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setInt(1, i);
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+				rU.setUserId(rs.getInt(1));
+				rU.setEmail(rs.getString("email"));
+				rU.setUserName(rs.getString("username"));
+				rU.setPassword(rs.getString("cd_password"));
+				rU.setUserLevel(rs.getInt("user_level"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rU;
 	}
 	public User findByUsername(String n) {
 		Connection con = DAOUtilities.getConnection();
@@ -51,6 +68,7 @@ public class UserDAO implements DAOContract<User, Integer> {
 				rU.setUserName(rs.getString("username"));
 				rU.setPassword(rs.getString("cd_password"));
 				rU.setUserLevel(rs.getInt("user_level"));
+				rU.setUserId(rs.getInt("user_id"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -100,7 +118,7 @@ public class UserDAO implements DAOContract<User, Integer> {
 			stmt.setString(3, t.getUserName());
 			stmt.setString(4, t.getPassword());
 			stmt.executeUpdate();
-			}catch(SQLException e) {
+		}catch(SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	

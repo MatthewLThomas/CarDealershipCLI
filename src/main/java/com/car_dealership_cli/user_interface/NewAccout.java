@@ -81,6 +81,8 @@ public class NewAccout implements Menu {
 				}
 			}while(!inOne.equals(inTwo));
 			newUser.setPassword(inOne);
+			UserDAO ud = new UserDAO();
+			ud.create(newUser);
 			break;
 		case 5:
 			System.out.print("You're all done! Redirecting you to the main menu.");

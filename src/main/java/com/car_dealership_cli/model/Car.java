@@ -11,6 +11,37 @@ public class Car {
 	private double principle;
 	private double debt;
 	
+	public Car() {
+		
+	}
+	
+	public Car(int carId, User owner, String make, String model, int year, double mSRP, double payment,
+			double principle, double debt) {
+		super();
+		this.carId = carId;
+		this.owner = owner;
+		this.make = make;
+		this.model = model;
+		this.year = year;
+		this.MSRP = mSRP;
+		this.payment = payment;
+		this.principle = principle;
+		this.debt = debt;
+	}
+
+	public Car(int carID, String make, String model, int year, double mSRP) {
+		super();
+		this.carId = carID;
+		this.make = make;
+		this.model = model;
+		this.year = year;
+		this.MSRP = mSRP;
+	}
+	public String toString() {
+		// TODO Auto-generated method stub
+		return " Make "+make+", Model "+model + ", Year " + year + ", MSRP " + MSRP +"\n";
+	}
+	
 	public int getCarId() {
 		return carId;
 	}

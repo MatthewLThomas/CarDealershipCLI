@@ -6,6 +6,23 @@ public class Offer {
 	private double offer;
 	private User user;
 
+	public Offer(int offerId, Car car, double offer, User user) {
+		super();
+		this.offerId = offerId;
+		this.car = car;
+		this.offer = offer;
+		this.user = user;
+	}
+	public Offer(Car car, double offer, User user) {
+		super();
+		this.car = car;
+		this.offer = offer;
+		this.user = user;
+	}
+	@Override
+	public String toString() {
+		return "Offer [offerId=" + offerId + ", car=" + car + ", offer=" + offer + "] \n";
+	}
 	public Car getCar() {
 		return car;
 	}

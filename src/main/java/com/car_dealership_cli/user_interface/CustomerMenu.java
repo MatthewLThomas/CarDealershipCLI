@@ -2,19 +2,17 @@ package com.car_dealership_cli.user_interface;
 
 import java.util.Scanner;
 
-import com.car_dealership_cli.controller.UserController;
-import com.car_dealership_cli.model.User;
+
 import com.car_dealership_cli.user_interface.interfaces.Menu;
 
 public class CustomerMenu implements Menu {
 	private Scanner input;
-	private User user;
 	private boolean cont = false;
 	
 	@Override
 	public void open(Scanner a) {
 		this.input = a;
-		this.user = UserController.getUser();
+		
 		do {
 			display();
 			select(input.next());
@@ -37,9 +35,12 @@ public class CustomerMenu implements Menu {
 	public boolean select(String in) {
 		switch(in) {
 		case "1":
+			Menu om = new OfferMenu();
+			om.open(input);
+			break;
 		case "2":
-			OwnedCars oc = new OwnedCars();
-			oc.open(input, user);
+			Menu oc = new OwnedCars();
+			oc.open(input);
 			break;
 		case "3":
 			cont = true;

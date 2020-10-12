@@ -2,7 +2,6 @@ package com.car_dealership_cli;
 
 
 import java.util.Scanner;
-
 import com.car_dealership_cli.user_interface.MainMenu;
 
 
@@ -14,6 +13,7 @@ public class Driver {
 		MainMenu mM = new MainMenu();
 		mM.open(input);
 		input.close();
+		
 		
 	}
 
