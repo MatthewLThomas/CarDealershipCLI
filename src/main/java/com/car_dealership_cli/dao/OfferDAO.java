@@ -106,8 +106,28 @@ public class OfferDAO implements DAOContract<Offer, Integer> {
 
 	@Override
 	public List<Offer> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = DAOUtilities.getConnection();
+		CarDAO cd = new CarDAO();
+		UserDAO ud = new UserDAO();
+		List<Offer> offerList = new ArrayList<Offer>();
+		String sql = "select * from offer order by car_id;"; 
+		try {
+			PreparedStatement stmt = con.prepareStatement(sql);
+		
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Offer tempUser = new Offer(rs.getInt(1),cd.findById((rs.getInt(2))),rs.getDouble(3), ud.findById(rs.getInt(4)));
+				offerList.add(tempUser);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return offerList;
+
+	
 	}
 
 }

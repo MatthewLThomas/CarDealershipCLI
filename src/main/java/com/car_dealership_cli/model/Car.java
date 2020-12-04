@@ -37,9 +37,10 @@ public class Car {
 		this.year = year;
 		this.MSRP = mSRP;
 	}
+
 	public String toString() {
 		// TODO Auto-generated method stub
-		return " Make "+make+", Model "+model + ", Year " + year + ", MSRP " + MSRP +"\n";
+		return year+", "+ make+", "+model + ", MSRP $" + MSRP;
 	}
 	
 	public int getCarId() {

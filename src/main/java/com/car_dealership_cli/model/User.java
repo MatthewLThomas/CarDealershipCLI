@@ -17,6 +17,14 @@ public class User {
 		
 	}
 	
+	public User(int userId, int userLevel, String email, String userName, String password) {
+		super();
+		this.userId = userId;
+		this.userLevel = userLevel;
+		this.email = email;
+		this.userName = userName;
+		this.password = password;
+	}
 	public User (int userLevel, String email, String userName, String password) {
 		this.userLevel = userLevel;
 		this.email = email;

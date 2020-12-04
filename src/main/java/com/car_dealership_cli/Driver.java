@@ -13,6 +13,7 @@ public class Driver {
 		MainMenu mM = new MainMenu();
 		mM.open(input);
 		input.close();
+		System.out.println("Closing Program.");
 		
 		
 	}

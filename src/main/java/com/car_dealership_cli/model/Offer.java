@@ -21,7 +21,7 @@ public class Offer {
 	}
 	@Override
 	public String toString() {
-		return "Offer [offerId=" + offerId + ", car=" + car + ", offer=" + offer + "] \n";
+		return  car + ", Offer $" + offer ;
 	}
 	public Car getCar() {
 		return car;

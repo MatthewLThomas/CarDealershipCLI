@@ -36,7 +36,7 @@ public class NewAccout implements Menu {
 			System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 			break;
 		case 1:
-			System.out.println("Welcome to the user creation experience.");
+			System.out.println("Welcome to user creation.");
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {

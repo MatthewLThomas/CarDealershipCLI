@@ -17,7 +17,7 @@ public class PaymentController {
 			CarDAO cd = new CarDAO();
 			Car car = cd.findById(Integer.parseInt(in));
 			int remainingPayments = (int)Math.round((car.getDebt() / car.getPayment()));
-			System.out.println("There are "+remainingPayments + " payments left on this vehicle");
+			System.out.println("There are "+remainingPayments + " payments of $"+ car.getPayment()+" left on this vehicle");
 		
 			
 		}

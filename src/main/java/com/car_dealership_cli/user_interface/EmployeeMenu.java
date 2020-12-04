@@ -1,11 +1,14 @@
 package com.car_dealership_cli.user_interface;
 
+import java.util.Collection;
+
 import java.util.Scanner;
 
 import com.car_dealership_cli.controller.CarController;
 import com.car_dealership_cli.controller.OfferController;
 import com.car_dealership_cli.controller.PaymentController;
 import com.car_dealership_cli.dao.CarDAO;
+import com.car_dealership_cli.model.Car;
 import com.car_dealership_cli.user_interface.interfaces.Menu;
 
 public class EmployeeMenu implements Menu {
@@ -49,8 +52,13 @@ public class EmployeeMenu implements Menu {
 		case "4":
 			CarDAO cd = new CarDAO();
 			System.out.println("Vehicles with remaining payments:");
-			System.out.println(cd.findMapDebtors());
-			System.out.println("If you would like to view your remaining payments on a vehicle, select the vehicle in question. Otherwise enter any other key.");
+			//System.out.println(cd.findMapDebtors());
+			Collection<Car> c = cd.findMapDebtors().values();
+			Object[] c2 = c.toArray();
+			for (int i=0;i<c2.length;i++) {
+				System.out.println(((Car)c2[i]).getCarId() +": " + c2[i].toString());
+			}
+			System.out.println("If you would like to view the remaining payments on a vehicle, select the vehicle in question. Otherwise enter any other key.");
 			PaymentController.view(input.next());
 			System.out.println("Enter any key to continue.");
 			input.next();

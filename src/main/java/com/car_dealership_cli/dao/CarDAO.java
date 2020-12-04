@@ -47,6 +47,9 @@ public class CarDAO implements DAOContract<Car, Integer> {
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				Car tempUser = new Car(rs.getInt("car_id"),rs.getString("make"),rs.getString("model"),rs.getInt("car_year"),rs.getDouble("msrp"));
+				tempUser.setDebt(rs.getDouble("debt"));
+				tempUser.setPrinciple(rs.getDouble("principle"));
+				tempUser.setPayment(rs.getDouble("payment"));
 				
 				carList.put(tempUser.getCarId(), tempUser);
 			}
